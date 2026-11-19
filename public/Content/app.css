@@ -1,0 +1,9 @@
+/* Main content spacing */
+main {
+    padding: 40px 20px;
+}
+
+/* Logo appearance */
+.navbar-brand img {
+    border-radius: 8px;
+}

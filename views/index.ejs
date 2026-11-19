@@ -1,0 +1,34 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<main class="container">
+<h1>Find Your Quiet Study Spot</h1>
+<p>Find suitable places on campus to study based on noise levels, crowd levels and power outlet availability.</p>
+<!-- Button to report a study spot -->
+<a class="btn btn-primary" href="/spots/add">Report a Study Spot</a>
+<br>
+<br>
+<!-- Study spot listing -->
+<h2>Available Study Spots</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <!-- Header Row -->
+    <tr>
+        <th class="text-center col-3">Location</th>
+        <th class="text-center col-3">Noise Level</th>
+        <th class="text-center col-3">Crowd Level</th>
+        <th class="text-center col-3">Power Outlets</th>
+    </tr>
+
+    <!-- Display each study spot record -->
+    <% for(let count=0;count<Spotlist.length;count++) { %>
+        <tr>
+            <td class="text-center col-3"><%= Spotlist[count].location %></td>
+            <td class="text-center col-3"><%= Spotlist[count].noiseLevel %></td>
+            <td class="text-center col-3"><%= Spotlist[count].crowdLevel %></td>
+<td class="text-center col-3"><%= Spotlist[count].powerOutlets %></td>
+        </tr>
+    <% } %>
+</table>
+</main>
+<%- include partials/footer.ejs %>
