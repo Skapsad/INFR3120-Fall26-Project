@@ -4,6 +4,8 @@ INFR3120 Fall 2026 - Project Part 1
 
 GitHub: https://github.com/Skapsad/INFR3120-Fall26-Project
 
+Website: https://campusquiet.onrender.com
+
 ## Project Idea
 
 CampusQuiet is a website for students to find a place to study on campus. During busy times like midterms it's hard to find a quiet spot, as the library is usually full, the lounges are loud and a lot of tables don't have power outlets close by. Students end up spending their time going between buildings looking for a place to sit instead of studying.
