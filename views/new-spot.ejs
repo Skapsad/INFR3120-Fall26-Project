@@ -1,0 +1,46 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<main class="container mt-4">
+  <h1><%= title %></h1>
+
+  <form action="/spots" method="POST">
+    <p>
+      <label for="location">Building and specific spot</label>
+      <input id="location" name="location" type="text"
+             placeholder="Library, second-floor window desks" required>
+    </p>
+
+    <p>
+      <label for="noiseLevel">Noise level</label>
+      <select id="noiseLevel" name="noiseLevel">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="crowdLevel">Crowd level</label>
+      <select id="crowdLevel" name="crowdLevel">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="powerOutlets">Power outlets</label>
+      <select id="powerOutlets" name="powerOutlets">
+        <option>None</option>
+        <option>Some</option>
+        <option>Lots</option>
+      </select>
+    </p>
+
+    <button type="submit" class="btn btn-primary">Save Study Spot</button>
+    <a href="/home">Back to home</a>
+  </form>
+</main>
+
+<%- include partials/footer.ejs %>

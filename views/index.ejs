@@ -18,6 +18,7 @@
         <th class="text-center col-3">Noise Level</th>
         <th class="text-center col-3">Crowd Level</th>
         <th class="text-center col-3">Power Outlets</th>
+        <th class="text-center col-3">Time Left</th>
     </tr>
 
     <!-- Display each study spot record -->
@@ -26,9 +27,39 @@
             <td class="text-center col-3"><%= Spotlist[count].location %></td>
             <td class="text-center col-3"><%= Spotlist[count].noiseLevel %></td>
             <td class="text-center col-3"><%= Spotlist[count].crowdLevel %></td>
-<td class="text-center col-3"><%= Spotlist[count].powerOutlets %></td>
+            <td class="text-center col-3"><%= Spotlist[count].powerOutlets %></td>
+            <td class="text-center">
+              <% if (Spotlist[count].expiresAt) { %>
+                <span class="spot-countdown"
+                      data-expires-at="<%= Spotlist[count].expiresAt %>"></span>
+              <% } else { %>
+                -
+              <% } %>
+            </td>
         </tr>
     <% } %>
 </table>
 </main>
+
+<script>
+  function updateCountdowns() {
+    document.querySelectorAll('.spot-countdown').forEach(function (timer) {
+      const expiresAt = Number(timer.dataset.expiresAt);
+      const secondsLeft = Math.ceil((expiresAt - Date.now()) / 1000);
+
+      if (secondsLeft <= 0) {
+        timer.closest('tr').remove();
+        return;
+      }
+
+      const minutes = Math.floor(secondsLeft / 60);
+      const seconds = String(secondsLeft % 60).padStart(2, '0');
+      timer.textContent = minutes + ':' + seconds;
+    });
+  }
+
+  updateCountdowns();
+  setInterval(updateCountdowns, 1000);
+</script>
+
 <%- include partials/footer.ejs %>
